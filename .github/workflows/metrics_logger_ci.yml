@@ -18,11 +18,12 @@ jobs:
       - name: Setup Conda
         uses: conda-incubator/setup-miniconda@v2
         with:
-          activate-environment: anaconda-client-env
           environment-file: conda-env.yml
-          auto-activate-base: true
+          activate-environment: metrics-logger
       - name: Run tests
-        run: pytest --cache-clear --cov=src/ --cov-report term-missing tests/ > pytest-coverage.txt
+        run: |
+          conda info
+          pytest --cache-clear --cov=src/ --cov-report term-missing tests/ > pytest-coverage.txt
       - name: Echo failing test results
         if: failure()
         run: cat pytest-coverage.txt
