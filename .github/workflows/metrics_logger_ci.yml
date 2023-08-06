@@ -9,6 +9,9 @@ jobs:
   test:
     name: Run pytest suite
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -el {0}
     steps:
       - uses: actions/checkout@v3
       - name: Setup Python
@@ -20,9 +23,9 @@ jobs:
         with:
           environment-file: conda-env.yml
           activate-environment: metrics-logger
+          auto-activate-base: false
       - name: Run tests
         run: |
-          conda activate metrics-logger
           pytest --cache-clear --cov=src/ --cov-report term-missing tests/ > pytest-coverage.txt
       - name: Echo failing test results
         if: failure()
