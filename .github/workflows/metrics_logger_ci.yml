@@ -22,7 +22,7 @@ jobs:
           activate-environment: metrics-logger
       - name: Run tests
         run: |
-          conda info
+          conda activate metrics-logger
           pytest --cache-clear --cov=src/ --cov-report term-missing tests/ > pytest-coverage.txt
       - name: Echo failing test results
         if: failure()
