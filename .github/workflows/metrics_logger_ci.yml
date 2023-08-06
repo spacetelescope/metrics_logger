@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  
+  concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+  test:
+    name: Run pytest suite
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11.4
+      - name: Setup Conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: anaconda-client-env
+          environment-file: conda-env.yml
+          auto-activate-base: true
+      - name: Run tests
+        run:
+        pytest --cache-clear --cov=src/ --cov-report term-missing tests/ > pytest-coverage.txt
+      - name: Echo failing test results
+        if: failure()
+        run: cat pytest-coverage.txt
+      - name: Pytest Coverage Commenatator
+        uses: coroo/pytest-coverage-commentator@v1.0.2

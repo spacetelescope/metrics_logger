@@ -1,4 +1,4 @@
-> # Roman Calibration Pipeline
+> # STScI Metrics Logger
 
 
 [![CI](https://github.com/spacetelescope/metrics_logger/actions/workflows/metrics_logger_ci.yml/badge.svg)](https://github.com/spacetelescope/metrics_logger/actions/workflows/metrics_logger_ci.yml)
