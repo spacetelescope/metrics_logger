@@ -26,8 +26,7 @@ jobs:
           environment-file: conda-env.yml
           auto-activate-base: true
       - name: Run tests
-        run:
-        pytest --cache-clear --cov=src/ --cov-report term-missing tests/ > pytest-coverage.txt
+        run: pytest --cache-clear --cov=src/ --cov-report term-missing tests/ > pytest-coverage.txt
       - name: Echo failing test results
         if: failure()
         run: cat pytest-coverage.txt
