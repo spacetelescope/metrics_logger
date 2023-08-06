@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "metrics-logger"
+authors = [
+    {name = "John Glorioso", email = "jglorioso@stsci.edu"},
+]
+description = "Standardized logging for metrics capture for applications with requirements."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["pytest"]
+dynamic = ["version"]
