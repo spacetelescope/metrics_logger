@@ -1,5 +1,5 @@
 [project]
-name = "metrics-logger"
+name = "metrics_logger"
 authors = [
     {name = "John Glorioso", email = "jglorioso@stsci.edu"},
 ]
@@ -29,7 +29,7 @@ build-backend = "setuptools.build_meta"
 include-package-data = true
 
 [tool.setuptools.dynamic]
-version = {attr = "metrics-logger.__version__"}
+version = {attr = "metrics_logger.__version__"}
 
 [tool.setuptools.packages.find]
 where = ["src"]

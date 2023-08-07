@@ -1,5 +1,5 @@
 from pytest import raises
-from decorators import metrics_logger
+from metrics_logger.decorators import metrics_logger
 
 
 def test_one_tag(caplog) -> None:
