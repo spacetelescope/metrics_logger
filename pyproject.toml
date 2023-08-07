@@ -12,3 +12,9 @@ readme = "README.md"
 requires-python = ">=3.9"
 dependencies = ["pytest"]
 dynamic = ["version"]
+
+[project.urls]
+Source = "https://github.com/spacetelescope/metrics_logger"
+
+[metadata]
+version = attr: metrics-logger.__version__
