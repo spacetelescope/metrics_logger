@@ -8,13 +8,13 @@ authors = [
     {name = "John Glorioso", email = "jglorioso@stsci.edu"},
 ]
 description = "Standardized logging for metrics capture for applications with requirements."
-readme = "README.md"
+readme = { file = "README.md", content-type = "text/x-rst" }
 requires-python = ">=3.9"
 dependencies = ["pytest"]
 dynamic = ["version"]
 
 [project.urls]
-Source = "https://github.com/spacetelescope/metrics_logger"
+source = "https://github.com/spacetelescope/metrics_logger"
 
-[metadata]
-version = attr: metrics-logger.__version__
+[tools.setup.dynamic]
+version = {attr = "metrics-logger.__version__"}
