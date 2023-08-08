@@ -1,14 +1,35 @@
-[build-system]
-requires = ["setuptools", "setuptools-scm"]
-build-backend = "setuptools.build_meta"
-
 [project]
-name = "metrics-logger"
+name = "metrics_logger"
 authors = [
     {name = "John Glorioso", email = "jglorioso@stsci.edu"},
 ]
 description = "Standardized logging for metrics capture for applications with requirements."
-readme = "README.md"
+readme = { file = "README.md", content-type = "text/x-rst" }
 requires-python = ">=3.9"
 dependencies = ["pytest"]
 dynamic = ["version"]
+
+[project.urls]
+source = "https://github.com/spacetelescope/metrics_logger"
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov"
+]
+
+[build-system]
+requires = [
+    "setuptools",
+    "setuptools_scm[toml]"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+version = {attr = "metrics_logger.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
