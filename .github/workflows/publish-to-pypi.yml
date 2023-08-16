@@ -6,7 +6,11 @@ on:
 
 jobs:
   publish:
+<<<<<<< HEAD
     uses: 'spacetelescope/action-publish_to_pypi/.github/workflows/workflow.yml@main'
+=======
+    uses: 'spacetelescope/action-publish_to_pypi/.github/workflows/workflow.yml@master'
+>>>>>>> df49cc6... fix branch of GA
     with:
       test: false
       build_platform_wheels: false # Set to true if your package contains a C extension
