@@ -3,6 +3,7 @@
 
 [![CI](https://github.com/spacetelescope/metrics_logger/actions/workflows/metrics_logger_ci.yml/badge.svg)](https://github.com/spacetelescope/metrics_logger/actions/workflows/metrics_logger_ci.yml)
 [![Powered by STScI Badge](https://img.shields.io/badge/powered%20by-STScI-blue.svg?colorA=707170&colorB=3e8ddd&style=flat)](http://www.stsci.edu)
+[![codecov](https://codecov.io/gh/spacetelescope/metrics_logger/graph/badge.svg?token=hGkFbpjWBk)](https://codecov.io/gh/spacetelescope/metrics_logger)
 
 The metrics logger is a simple decorator intended to provide standardized logging for annotated pytest methods with tags to identify associated build requirements. As this is a generic utility, any method can be decorated and any type of tagging can be provided.
 
