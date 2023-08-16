@@ -4,7 +4,7 @@ authors = [
     {name = "John Glorioso", email = "jglorioso@stsci.edu"},
 ]
 description = "Standardized logging for metrics capture for applications with requirements."
-readme = { file = "README.md", content-type = "text/plain" }
+readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = ">=3.9"
 dependencies = ["pytest"]
 dynamic = ["version"]
