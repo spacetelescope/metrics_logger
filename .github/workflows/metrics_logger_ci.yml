@@ -26,9 +26,14 @@ jobs:
           auto-activate-base: false
       - name: Run tests
         run: |
-          pytest --cache-clear --cov=src/ --cov-report term-missing tests/ > pytest-coverage.txt
+          pytest --cache-clear --cov=src/ --cov-report term-missing --cov-report xml:coverage.xml tests/ > pytest-coverage.txt
       - name: Echo failing test results
         if: failure()
         run: cat pytest-coverage.txt
       - name: Pytest Coverage Commenatator
         uses: coroo/pytest-coverage-commentator@v1.0.2
+      - uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      
