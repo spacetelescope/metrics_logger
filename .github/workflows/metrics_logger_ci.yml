@@ -17,19 +17,17 @@ jobs:
         shell: bash -el {0}
     steps:
       - uses: actions/checkout@v3
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.11.4
       - name: Setup Conda
-        uses: conda-incubator/setup-miniconda@v2
+        uses: mamba-org/setup-micromamba@v1
         with:
           environment-file: conda-env.yml
-          activate-environment: metrics-logger
-          auto-activate-base: false
+          environment-name: metrics-logger
+          init-shell: >-
+            bash
+          cache-environment: true
+          cache-downloads: true
       - run: pytest --cache-clear --cov=src/ --cov-report term-missing --cov-report xml:coverage.xml tests/
       - uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
-      
