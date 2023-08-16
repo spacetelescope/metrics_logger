@@ -31,4 +31,5 @@ jobs:
         if: failure()
         run: cat pytest-coverage.txt
       - name: Pytest Coverage Commenatator
+        if: github.event_name == 'pull_request_target' || github.event_name == 'pull_request'
         uses: coroo/pytest-coverage-commentator@v1.0.2
